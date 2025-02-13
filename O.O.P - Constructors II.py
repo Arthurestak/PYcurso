@@ -1,6 +1,6 @@
 from datetime import datetime
 
-class Funcionarios():
+class Funcionarios:
     def __init__(self, nome, sobrenome, ano_nascimento):
         self.nome = nome
         self.sobrenome = sobrenome
