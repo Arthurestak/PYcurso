@@ -1,7 +1,8 @@
-import os 
 import random as rd
 
-while True:
+numerador = 0
+
+for i in range(1,1001):
     decrescenteUm = 10
 
     contador = 9
@@ -12,7 +13,6 @@ while True:
         cpf_nove_digitos.append(rd.choice(range(0,10)))
         contador -= 1  
         continue
-    os.system('cls')
     
     if len(cpf_nove_digitos) == 9:
 
@@ -40,37 +40,33 @@ while True:
         multi2 = soma * 10
 
         resto = multi2 % 11
-
-        if resto >= 10:
-            print('O próximo número do CPF é: 0')
-        break
     else:
         print('Digite um valor válido, apenas os 9 primeiros números!\n')
-        continue
+        
 
-decrescenteDois = 11
+    decrescenteDois = 11
 
 
-cpf_novo_lista = []
-for i in cpf_nove_digitos:
-    cpf_novo_lista.append(i)
-cpf_novo_lista.append(resto) if resto <= 9 else cpf_novo_lista.append(0)
-    
-cpf_multi2 = []
-cpf_completo = []
-for i in cpf_novo_lista:
-    iNum = int(i)
-    multi3 = decrescenteDois * iNum
-    cpf_multi2.append(multi3)
-    decrescenteDois -= 1 
-j,k,l,m,n,o,p,q,r,s = cpf_multi2
-soma2 = j+k+l+m+n+o+p+q+r+s
-multi4 = soma2 * 10    
-resto2 = multi4 % 11
-if resto2 <= 9:
-    cpf_novo_lista.append(resto2)
-    print('CPF gerado: ',"".join(map(str,cpf_novo_lista)))
-else:
-    cpf_novo_lista.append(0)
-    print('CPF gerado: ',"".join(map(str,cpf_novo_lista)))
+    cpf_novo_lista = []
+    for i in cpf_nove_digitos:
+        cpf_novo_lista.append(i)
+    cpf_novo_lista.append(resto) if resto <= 9 else cpf_novo_lista.append(0)
 
+    cpf_multi2 = []
+    cpf_completo = []
+    for i in cpf_novo_lista:
+        iNum = int(i)
+        multi3 = decrescenteDois * iNum
+        cpf_multi2.append(multi3)
+        decrescenteDois -= 1 
+    j,k,l,m,n,o,p,q,r,s = cpf_multi2
+    soma2 = j+k+l+m+n+o+p+q+r+s
+    multi4 = soma2 * 10    
+    resto2 = multi4 % 11
+    numerador += 1
+    if resto2 <= 9:
+        cpf_novo_lista.append(resto2)
+        print(f'CPF {numerador} gerado: ',"".join(map(str,cpf_novo_lista)))
+    else:
+        cpf_novo_lista.append(0)
+        print(f'CPF {numerador} gerado: ',"".join(map(str,cpf_novo_lista)))
