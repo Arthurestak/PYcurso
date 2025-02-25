@@ -1,8 +1,15 @@
+import os 
 import random as rd
+
+numero_cpfs = input('Digite quantos CPFs você quer: ')
+
+numero_cpfs = int(numero_cpfs)
+
+numero_cpfs_para_range = numero_cpfs + 1
 
 numerador = 0
 
-for i in range(1,1001):
+for i in range(1,numero_cpfs_para_range):
     decrescenteUm = 10
 
     contador = 9
